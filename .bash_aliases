@@ -1,5 +1,1 @@
 alias 'cls'='clear'
-alias 'yah emerge'='pacman -S'  
-alias 'yah remove'='pacman -Rns' 
-alias 'yah refresh'='pacman -Syy' 
-alias 'yah update'='pacman -Syu'
