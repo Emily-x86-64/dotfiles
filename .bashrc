@@ -2,11 +2,18 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# This is for the `command-not-found` functionalty in Arch Linux.
-# if you are not running Arch or a Arch based distro leave this as is.
-# otherwise comment this line out.
+# Path Definitions
+export PATH=$PATH:/home/scott/.local/bin:/opt/platform-tools:
 
-# source /usr/share/doc/pkgfile/command-not-found.bash
+
+# Startup Shell (This prints the time and prints a bi flag to the console)
+
+now=$(date +"%T")
+racket .pride.rkt
+sleep 1
+clear
+echo "The time is : $now"
+echo "Welcome to bash, the liberals have taken over and the right is having sex with your pet hamster."
 
 # If not running interactively, don't do anything
 case $- in
