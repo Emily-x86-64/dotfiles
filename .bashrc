@@ -5,16 +5,6 @@
 # Path Definitions
 export PATH=$PATH:/home/scott/.local/bin:/opt/platform-tools:
 
-
-# Startup Shell (This prints the time and prints a bi flag to the console)
-
-now=$(date +"%T")
-racket .pride.rkt
-sleep 1
-clear
-echo "The time is : $now"
-echo "Welcome to bash, the liberals have taken over and the right is having sex with your pet hamster."
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -24,17 +14,29 @@ esac
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
+HISTTIMEFORMAT="%F %T "
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
+HISTSIZE=2000
 HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# Colour Definitions
+blk='\[\033[01;30m\]'   # Black
+red='\[\033[01;31m\]'   # Red
+grn='\[\033[01;32m\]'   # Green
+ylw='\[\033[01;33m\]'   # Yellow
+blu='\[\033[01;34m\]'   # Blue
+pur='\[\033[01;35m\]'   # Purple
+cyn='\[\033[01;36m\]'   # Cyan
+wht='\[\033[01;37m\]'   # White
+clr='\[\033[00m\]'      # Reset
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -128,3 +130,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Startup Shell (This prints the time and prints a bi flag to the console)
+
+now=$(date +"%T")
+echo "The time is : $now"
+racket ~/.pride.rkt
