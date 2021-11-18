@@ -135,4 +135,6 @@ fi
 
 now=$(date +"%T")
 echo "The time is : $now"
+echo "Please make the terminal emulator window fullscreen or you will experince problems"
+sleep 2
 racket ~/.pride.rkt
