@@ -1,9 +1,5 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 # Path Definitions
-export PATH=$PATH:/home/scott/.local/bin:/opt/platform-tools:
+export PATH=$PATH:~/.local/bin:/etc/profile:~/.local/share/gem/ruby/3.0.0/bin:/root/.local/share/gem/ruby/3.0.0/bin
 
 # If not running interactively, don't do anything
 case $- in
@@ -14,6 +10,7 @@ esac
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
+HISTCONTROL=ignoredups
 HISTTIMEFORMAT="%F %T "
 
 # append to the history file, don't overwrite it
@@ -41,6 +38,9 @@ clr='\[\033[00m\]'      # Reset
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 shopt -s globstar
+
+# Bash Auto CD
+shopt -s autocd
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -131,10 +131,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Startup Shell (This prints the time and prints a bi flag to the console)
+# For Arch Command Not Found
+source /usr/share/doc/pkgfile/command-not-found.bash
 
+# Startup Shell (This prints the time and prints a bi flag to the console)
 now=$(date +"%T")
 echo "The time is : $now"
 echo "Please make the terminal emulator window fullscreen or you will experince problems"
-sleep 2
-racket ~/.bi-pride.rkt
+sleep 1.5
+racket ~/.enby-pride.rkt
