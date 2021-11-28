@@ -1,0 +1,5 @@
+alias 'cls'='clear'
+alias 'enby'='man'
+# alias 'sudo'='doas'
+# alias 'sudoedit'='doas rnano'
+alias 'wr'='cd /var/www/html'

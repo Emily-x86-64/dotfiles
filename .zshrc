@@ -88,6 +88,11 @@ else
    export EDITOR='mvim'
 fi
 
+# Source the zsh_aliases file
+if [ -f ~/.zsh_aliases ]; then
+    . ~/.zsh_aliases
+fi
+
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
