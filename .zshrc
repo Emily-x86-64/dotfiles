@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:~/.local/bin:/etc/profile:~/.local/share/gem/ruby/3.0.0/bin:/root/.local/share/gem/ruby/3.0.0/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -60,7 +60,7 @@ ZSH_THEME="agnoster"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd/mm/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -82,11 +82,11 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_GB.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+else
+   export EDITOR='mvim'
+fi
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
@@ -116,4 +116,4 @@ now=$(date +"%T")
 echo "The time is : $now"
 echo "Please make the terminal emulator window fullscreen or you will experince problems"
 sleep 1.5
-racket ~/.bi-pride.rkt
+racket ~/.rainbow-pride.rkt
