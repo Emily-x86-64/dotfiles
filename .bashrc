@@ -44,6 +44,7 @@ shopt -s autocd
 shopt -s cdspell
 
 # Z Shell like autocomplete
+bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
 # make less more friendly for non-text input files, see lesspipe(1)
