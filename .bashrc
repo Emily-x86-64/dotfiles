@@ -41,6 +41,7 @@ shopt -s globstar
 
 # Bash Auto CD
 shopt -s autocd
+shopt -s cdspell
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -131,10 +132,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# For Arch Command Not Found
-source /usr/share/doc/pkgfile/command-not-found.bash
+# For Arch Command Not Found (On non arch distros comment this out)
+# source /usr/share/doc/pkgfile/command-not-found.bash
 
-# Startup Shell (This prints the time and prints a bi flag to the console)
+# Startup Shell (This prints the time and prints a pride flag to the console)
 now=$(date +"%T")
 echo "The time is : $now"
 echo "Please make the terminal emulator window fullscreen or you will experince problems"
