@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="gentoo" # set by `omz`
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,6 +73,7 @@ HIST_STAMPS="dd/mm/yyyy"
 plugins=(git ruby rails textmate lighthouse zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # User configuration
 
@@ -104,6 +105,15 @@ export ARCHFLAGS="-arch x86_64"
 # Example aliases
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
 # Colour Definitions
 blk='\[\033[01;30m\]'   # Black
@@ -115,6 +125,8 @@ pur='\[\033[01;35m\]'   # Purple
 cyn='\[\033[01;36m\]'   # Cyan
 wht='\[\033[01;37m\]'   # White
 clr='\[\033[00m\]'      # Reset
+
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Startup Shell (This prints the time and prints a pride flag to the console)
 now=$(date +"%T")
