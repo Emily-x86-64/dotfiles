@@ -137,11 +137,11 @@ if ! shopt -oq posix; then
 fi
 
 # For Arch Command Not Found (On non arch distros comment this out)
-# source /usr/share/doc/pkgfile/command-not-found.bash
+source /usr/share/doc/pkgfile/command-not-found.bash
 
 # Startup Shell (This prints the time and prints a pride flag to the console)
 now=$(date +"%T")
 echo "The time is : $now"
 echo "Please make the terminal emulator window fullscreen or you will experince problems"
 sleep 1.5
-racket ~/.enby-pride.rkt
+racket ~/.rainbow-pride.rkt
