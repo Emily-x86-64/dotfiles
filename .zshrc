@@ -60,7 +60,16 @@ ENABLE_CORRECTION="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
+
 HIST_STAMPS="dd/mm/yyyy"
+HISTCONTROL=ignoreboth
+HISTCONTROL=ignoredups
+HISTTIMEFORMAT="%F %T "
+HISTSIZE=2000
+HISTFILESIZE=2000
+setopt histappend
+
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -127,6 +136,7 @@ wht='\[\033[01;37m\]'   # White
 clr='\[\033[00m\]'      # Reset
 
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Startup Shell (This prints the time and prints a pride flag to the console)
 now=$(date +"%T")
