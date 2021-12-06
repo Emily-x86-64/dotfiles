@@ -67,7 +67,6 @@ HISTCONTROL=ignoredups
 HISTTIMEFORMAT="%F %T "
 HISTSIZE=2000
 HISTFILESIZE=2000
-setopt histappend
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -79,7 +78,7 @@ setopt histappend
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby rails textmate lighthouse vscode node python golang zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git ruby rails textmate dotenv rake bundler rbenv lighthouse vscode node python golang zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 source /usr/share/doc/pkgfile/command-not-found.zsh
