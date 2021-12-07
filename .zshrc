@@ -67,6 +67,7 @@ HISTCONTROL=ignoredups
 HISTTIMEFORMAT="%F %T "
 HISTSIZE=2000
 HISTFILESIZE=2000
+KEYBOARD_HACK=\'
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
