@@ -68,6 +68,7 @@ HISTTIMEFORMAT="%F %T "
 HISTSIZE=2000
 HISTFILESIZE=2000
 KEYBOARD_HACK=\'
+setopt nullglob
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -144,4 +145,4 @@ now=$(date +"%T")
 echo "The time is : $now"
 echo "Please make the terminal emulator window fullscreen or you will experince problems"
 sleep 1.5
-racket ~/.rainbow-pride.rkt
+racket ~/.les-pride.rkt
