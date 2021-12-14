@@ -38,6 +38,7 @@ clr='\[\033[00m\]'      # Reset
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 shopt -s globstar
+shopt -s nullglob
 
 # Bash Auto CD
 shopt -s autocd

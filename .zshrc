@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$PATH:~/.local/bin:/etc/profile:~/.local/share/gem/ruby/3.0.0/bin:/root/.local/share/gem/ruby/3.0.0/bin
+export PATH=$PATH:~/.local/bin:/etc/profile:~/.local/share/gem/ruby/3.0.0/bin:~/.cargo/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -100,6 +100,11 @@ else
    export EDITOR='nano'
 fi
 
+# Add truecolor support via ssh
+if [[ -n $SSH_CONNECTION ]]; then
+  export COLORTERM=truecolor
+fi
+
 # Source the zsh_aliases file
 if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
@@ -144,5 +149,5 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 now=$(date +"%T")
 echo "The time is : $now"
 echo "Please make the terminal emulator window fullscreen or you will experince problems"
-sleep 1.5
-racket ~/.les-pride.rkt
+sleep 1.4
+racket ~/.bi-pride.rkt
