@@ -150,4 +150,4 @@ now=$(date +"%T")
 echo "The time is : $now"
 echo "Please make the terminal emulator window fullscreen or you will experince problems"
 sleep 1.4
-racket ~/.bi-pride.rkt
+racket ~/.rainbow-pride.rkt
