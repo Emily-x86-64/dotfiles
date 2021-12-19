@@ -1,5 +1,5 @@
 # Path Definitions
-export PATH=$PATH:~/.local/bin:/etc/profile:~/.local/share/gem/ruby/3.0.0/bin:/root/.local/share/gem/ruby/3.0.0/bin
+export PATH=$PATH:~/.local/bin:/etc/profile:~/.local/share/gem/ruby/3.0.0/bin:~/.cargo/bin
 
 # If not running interactively, don't do anything
 case $- in
@@ -7,22 +7,13 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
+# History Control
+HIST_STAMPS="dd/mm/yyyy"
 HISTCONTROL=ignoreboth
 HISTCONTROL=ignoredups
 HISTTIMEFORMAT="%F %T "
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=2000
 HISTFILESIZE=2000
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
 
 # Colour Definitions
 blk='\[\033[01;30m\]'   # Black
@@ -35,12 +26,11 @@ cyn='\[\033[01;36m\]'   # Cyan
 wht='\[\033[01;37m\]'   # White
 clr='\[\033[00m\]'      # Reset
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
+# Bash shopt
+shopt -s histappend
+shopt -s checkwinsize
 shopt -s globstar
 shopt -s nullglob
-
-# Bash Auto CD
 shopt -s autocd
 shopt -s cdspell
 
@@ -50,11 +40,6 @@ bind 'TAB:menu-complete'
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -78,20 +63,11 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] λ '
+    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] λ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w λ '
+    PS1='\u@\h:\w λ '
 fi
 unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -121,9 +97,13 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+# Add truecolor support via ssh
+if [[ -n $SSH_CONNECTION ]]; then
+  export COLORTERM=truecolor
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -144,5 +124,5 @@ source /usr/share/doc/pkgfile/command-not-found.bash
 now=$(date +"%T")
 echo "The time is : $now"
 echo "Please make the terminal emulator window fullscreen or you will experince problems"
-sleep 1.5
+sleep 1.4
 racket ~/.rainbow-pride.rkt
