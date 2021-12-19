@@ -33,6 +33,7 @@ shopt -s globstar
 shopt -s nullglob
 shopt -s autocd
 shopt -s cdspell
+shopt -s dirspell
 
 # Z Shell like autocomplete
 bind 'set show-all-if-ambiguous on'
@@ -68,6 +69,15 @@ else
     PS1='\u@\h:\w λ '
 fi
 unset color_prompt force_color_prompt
+
+# xterm title
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -118,7 +128,7 @@ if ! shopt -oq posix; then
 fi
 
 # For Arch Command Not Found (On non arch distros comment this out)
-source /usr/share/doc/pkgfile/command-not-found.bash
+# source /usr/share/doc/pkgfile/command-not-found.bash
 
 # Startup Shell (This prints the time and prints a pride flag to the console)
 now=$(date +"%T")
