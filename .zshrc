@@ -17,7 +17,7 @@ ZSH_THEME="gentoo"
 ZSH_THEME_RANDOM_CANDIDATES=( "agnoster" "half-life" )
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -83,6 +83,7 @@ setopt nullglob
 plugins=(git ruby rails textmate dotenv rake bundler rbenv lighthouse vscode node python golang zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+# On non arch distros comment this out
 source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # User configuration
