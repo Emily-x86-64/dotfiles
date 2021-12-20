@@ -71,7 +71,7 @@
 # set linenumbers
 
 ## Enable vim-style lock-files.  This is just to let a vim user know you
-## are editing a file [s]he is trying to edit and vice versa.  There are
+## are editing a file they are trying to edit and vice versa.  There are
 ## no plans to implement vim-style undo state in these files.
 # set locking
 
@@ -91,7 +91,7 @@
 ## mouse clicks can be used to place the cursor, set the mark (with a
 ## double click), and execute shortcuts.  The mouse will work in the
 ## X Window System, and on the console when gpm is running.
-# set mouse
+set mouse
 
 ## Switch on multiple file buffers (inserting a file will put it into
 ## a separate buffer).
@@ -161,7 +161,7 @@
 
 ## Use this spelling checker instead of the internal one.  This option
 ## does not have a default value.
-# set speller "aspell -x -c"
+set speller "aspell -x -c"
 
 ## Use the end of the title bar for some state flags: I = auto-indenting,
 ## M = mark, L = hard-wrapping long lines, R = recording, S = soft-wrapping.
@@ -204,17 +204,17 @@
 
 ## Paint the interface elements of nano.  These are examples; there are
 ## no colors by default, except for errorcolor and spotlightcolor.
-# set titlecolor bold,white,blue
-# set promptcolor lightwhite,grey
-# set statuscolor bold,white,green
-# set errorcolor bold,white,red
-# set spotlightcolor black,lightyellow
-# set selectedcolor lightwhite,magenta
-# set stripecolor ,yellow
-# set scrollercolor cyan
-# set numbercolor cyan
-# set keycolor cyan
-# set functioncolor green
+set titlecolor bold,white,purple
+set promptcolor lightwhite,grey
+set statuscolor bold,white,purple
+set errorcolor bold,white,red
+set spotlightcolor black,lightyellow
+set selectedcolor lightwhite,magenta
+set stripecolor ,yellow
+set scrollercolor cyan
+set numbercolor cyan
+set keycolor cyan
+set functioncolor purple
 
 ## In root's .nanorc you might want to use:
 # set titlecolor bold,white,magenta
